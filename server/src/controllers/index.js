@@ -47,3 +47,28 @@ export const getMovie = async (req, res) => {
     }
 
 }
+
+export const searchMovie = async (req, res) => {
+
+    const { query } = req.query;
+
+    try {
+
+        const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`, {
+            method: "GET",
+            headers: {
+                accept: "application/json",
+                Authorization: `Bearer ${API_KEY}`
+            }
+        });
+
+        const data = await response.json();
+
+        return res.json({ error: false, data });
+
+    } catch (err) {
+        res.status(401);
+        return res.json({ error: true, msg: err.message });
+    }
+
+}
