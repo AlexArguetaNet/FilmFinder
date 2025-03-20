@@ -20,6 +20,7 @@ export default function Home() {
                 const moviesWithImg = movies.data.results.filter(elem => elem.poster_path != null)
     
                 setMovies(moviesWithImg);
+                console.log("API call");
     
             } catch (err) {
                 alert("Error getting movies");

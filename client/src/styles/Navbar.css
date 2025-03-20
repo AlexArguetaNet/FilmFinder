@@ -1,0 +1,11 @@
+
+nav {
+    background-color: #1F2D4B;
+    height: 70px;
+}
+
+.nav-bar-content {
+    display: flex;
+    color: #94ABE1;
+}
+
