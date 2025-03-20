@@ -3,7 +3,6 @@
     margin: 0px auto 0px auto;
     min-width: none;
     max-width: 1000px;
-    border: 1px solid red;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

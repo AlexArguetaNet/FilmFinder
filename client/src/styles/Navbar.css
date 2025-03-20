@@ -2,10 +2,27 @@
 nav {
     background-color: #1F2D4B;
     height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20% 0px 20%;
+    margin-bottom: 20px;
 }
 
-.nav-bar-content {
+nav .title {
     display: flex;
+    font-size: 30px;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 700;
     color: #94ABE1;
 }
+
+nav .login-button {
+    background-color: #E4EAF8;
+    padding: 6px 16px;
+    border-radius: 5px;
+}
+
+
+
 
