@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import "../styles/Home.css";
 
 export default function Home() {
 
@@ -15,8 +16,10 @@ export default function Home() {
                 });
     
                 const movies = await response.json();
+
+                const moviesWithImg = movies.data.results.filter(elem => elem.poster_path != null)
     
-                setMovies(movies.data.results);
+                setMovies(moviesWithImg);
     
             } catch (err) {
                 alert("Error getting movies");
@@ -31,7 +34,9 @@ export default function Home() {
     <div className='home'>
         <div className='movie-grid'>
             {movies.length > 0 && movies.map((elem, key) => (
-                <p key={key} >{ elem.original_title }</p>
+                <div className='movie-card' key={key}>
+                    <img src={`https://image.tmdb.org/t/p/w500${elem.poster_path}`} />
+                </div>
             ))}
         </div>
     </div>

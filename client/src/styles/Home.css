@@ -1,0 +1,19 @@
+
+.movie-grid {
+    margin: 0px auto 0px auto;
+    min-width: none;
+    max-width: 1000px;
+    border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie-grid img {
+    width: 200px;
+    border-radius: 5px;
+}
+
+.movie-card {
+    margin: 0px 15px 5px 15px;
+}
