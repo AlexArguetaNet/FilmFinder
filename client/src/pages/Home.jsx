@@ -6,6 +6,28 @@ import "../styles/Home.css";
 export default function Home() {
 
     const [movies, setMovies] = useState([]);
+    const [query, setQuery] = useState("");
+
+    const searchMovies = async () => {
+
+        try {
+
+            if (query === "") {
+                alert("Enter a valid movie name");
+            } else {
+
+                const response = await fetch(`http://localhost:4001/search?query=${query}`);
+                const jsonData = await response.json();
+
+                setMovies(jsonData.searchResults);
+                
+            }
+
+        } catch (err) {
+            alert(err.message);
+        }
+
+    }
 
     useEffect(() => {
         
@@ -16,15 +38,11 @@ export default function Home() {
                     method: "GET"
                 });
     
-                const movies = await response.json();
-
-                const moviesWithImg = movies.data.results.filter(elem => elem.poster_path != null)
-    
-                setMovies(moviesWithImg);
-                console.log("API call");
+                const jsonData = await response.json();
+                setMovies(jsonData.movies);
     
             } catch (err) {
-                alert("Error getting movies");
+                alert(err.message);
             }
         }
 
@@ -38,8 +56,11 @@ export default function Home() {
             <div className='search-container'>
                 <h2>Explore</h2>
                 <div className='search-bar'>
-                    <IoIosSearch />
-                    <input type="text" placeholder='Search...'/>
+                    <IoIosSearch onClick={() => searchMovies(query)} />
+                    <input type="text" placeholder='Search...'
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                    />
                 </div>
             </div>
             <div className='movie-grid'>
