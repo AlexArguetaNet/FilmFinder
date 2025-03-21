@@ -32,13 +32,16 @@ export default function Home() {
     }, []);
 
   return (
-    <div className='home'>
-        <div className='movie-grid'>
-            {movies.length > 0 && movies.map((elem, key) => (
-                <div className='movie-card' key={key}>
-                    <img src={`https://image.tmdb.org/t/p/w500${elem.poster_path}`} />
-                </div>
-            ))}
+    <div className='home-page'>
+        <div className='content'>
+            <h2>Explore</h2>
+            <div className='movie-grid'>
+                {movies.length > 0 && movies.map((elem, key) => (
+                    <div className='movie-card' key={key}>
+                        <img src={`https://image.tmdb.org/t/p/w500${elem.poster_path}`} />
+                    </div>
+                ))}
+            </div>
         </div>
     </div>
   )
