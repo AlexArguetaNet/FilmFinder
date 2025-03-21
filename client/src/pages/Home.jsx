@@ -8,6 +8,21 @@ export default function Home() {
     const [movies, setMovies] = useState([]);
     const [query, setQuery] = useState("");
 
+    const getPopularMovies = async () => {
+        try {
+
+            const response = await fetch("http://localhost:4001/popular-movies", {
+                method: "GET"
+            });
+
+            const jsonData = await response.json();
+            setMovies(jsonData.movies);
+
+        } catch (err) {
+            alert(err.message);
+        }
+    }
+
     const searchMovies = async () => {
 
         try {
@@ -29,22 +44,17 @@ export default function Home() {
 
     }
 
-    useEffect(() => {
-        
-        const getPopularMovies = async () => {
-            try {
-
-                const response = await fetch("http://localhost:4001/popular-movies", {
-                    method: "GET"
-                });
-    
-                const jsonData = await response.json();
-                setMovies(jsonData.movies);
-    
-            } catch (err) {
-                alert(err.message);
-            }
+    const handleQueryChange = (queryVal) => {
+        if (queryVal.length === 0) {
+            setQuery("")
+            getPopularMovies();
+        } else {
+            setQuery(queryVal);
         }
+    }
+    
+
+    useEffect(() => {
 
         getPopularMovies();
 
@@ -59,7 +69,7 @@ export default function Home() {
                     <IoIosSearch onClick={() => searchMovies(query)} />
                     <input type="text" placeholder='Search...'
                         value={query}
-                        onChange={(e) => setQuery(e.target.value)}
+                        onChange={(e) => handleQueryChange(e.target.value)}
                     />
                 </div>
             </div>

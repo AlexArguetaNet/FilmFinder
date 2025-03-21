@@ -17,9 +17,8 @@
 
 .search-container {
     display: flex;
-    margin-bottom: 60px;
     justify-content: space-between;
-    margin: 40px 75px;
+    margin: 0px 75px 20px 75px;
 }
 .search-bar {
     border-bottom: 1px solid #94ABE1;
