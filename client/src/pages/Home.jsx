@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import { IoIosSearch } from "react-icons/io";
 import "../styles/Home.css";
 
 export default function Home() {
@@ -34,7 +35,13 @@ export default function Home() {
   return (
     <div className='home-page'>
         <div className='content'>
-            <h2>Explore</h2>
+            <div className='search-container'>
+                <h2>Explore</h2>
+                <div className='search-bar'>
+                    <IoIosSearch />
+                    <input type="text" placeholder='Search...'/>
+                </div>
+            </div>
             <div className='movie-grid'>
                 {movies.length > 0 && movies.map((elem, key) => (
                     <div className='movie-card' key={key}>

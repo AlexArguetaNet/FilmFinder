@@ -36,25 +36,6 @@ nav {
     font-family: "Montserrat Alternates", sans-serif;
 }
 
-.search-bar {
-    border-bottom: 1px solid #94ABE1;
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    color: #94ABE1;
-    margin-right: 30px;
-}
-
-.search-bar input[type="text"] {
-    margin-left: 10px;
-    background-color: transparent;
-    color: #94ABE1;
-}
-
-.search-bar input::placeholder {
-    font-family: "Montserrat Alternates", sans-serif;
-    color: #94ABE1;
-}
 
 
 
