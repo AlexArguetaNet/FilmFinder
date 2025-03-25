@@ -2,7 +2,7 @@
 .home-page .content {
     margin: 0px auto 0px auto;
     min-width: none;
-    max-width: 1500px;
+    max-width: 1300px;
     display: flex;
     flex-direction: column;
 }
@@ -40,9 +40,11 @@
 }
 
 .movie-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+    place-items: center;
+    gap: 20px;
+    padding: 0px 20px 0px 20px;
 }
 
 .movie-grid img {
