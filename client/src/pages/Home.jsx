@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { IoIosSearch } from "react-icons/io";
+import MovieCard from '../components/MovieCard';
 import "../styles/Home.css";
 
 export default function Home() {
@@ -75,9 +76,7 @@ export default function Home() {
             </div>
             <div className='movie-grid'>
                 {movies.length > 0 && movies.map((elem, key) => (
-                    <div className='movie-card' key={key}>
-                        <img src={`https://image.tmdb.org/t/p/w500${elem.poster_path}`} />
-                    </div>
+                    <MovieCard title={elem.original_title} posterPath={elem.poster_path} />
                 ))}
             </div>
         </div>
